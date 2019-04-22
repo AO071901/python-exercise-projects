@@ -8,8 +8,8 @@ import re
 random.seed(datetime.datetime.now())
 
 
-def get_links(articleUrl):
-    html = urlopen('http://en.wikipedia.org{}'.format(articleUrl))
+def get_links(article_url):
+    html = urlopen('http://en.wikipedia.org{}'.format(article_url))
     bs = BeautifulSoup(html, 'html.parser')
     return bs.find('div', {'id': 'bodyContent'}).find_all('a', href=re.compile('^(/wiki/)((?!:).)*$'))
 
